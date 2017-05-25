@@ -27,6 +27,11 @@
 ;;TextEditConfig
 (setq tab-always-indent 'complete)
 
+;;Company
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
 
 ;;projectile-mode
 (use-package projectile
@@ -34,7 +39,7 @@
 )
 
 ;;eclim
-(load "~/.emacs.d/configs/eclimjava.el")
+;;(load "~/.emacs.d/configs/eclimjava.el")
 
 ;;smex
 (use-package smex
@@ -44,6 +49,7 @@
 
 ;;paredit
 (require 'paredit)
+(add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'ielm-mode-hook #'enable-paredit-mode) 
 (add-hook 'ielm-mode-hook '(lambda () (set (make-local-variable 'company-backends) '(company-elisp))))
 
@@ -58,3 +64,40 @@
   :ensure t
   :config
   (add-hook 'cider-repl-mode-hook #'paredit-mode))
+
+;;rainbow-mode
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-mode))
+
+;;lisp-mode
+(use-package lisp-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
+  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+
+;;ielm
+(use-package ielm
+  :config
+  (add-hook 'ielm-mode-hook #'eldoc-mode)
+  (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
+
+;;elfeed
+(setq elfeed-feeds '("http://ergoemacs.org/emacs/blog.xml"))
+
+
+;;org
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;;octave-mode
+(use-package octave-mode
+  :mode "//.m//")
+(require 'ac-octave)
+(defun ac-octave-mode-setup ()
+    (setq ac-sources '(ac-complete-octave)))
+(add-hook 'octave-mode-hook
+		            '(lambda () (ac-octave-mode-setup)))

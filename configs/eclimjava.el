@@ -19,8 +19,6 @@
 (ac-emacs-eclim-config)
 ;;company-mode
 ;;regular company mode
-(require 'company)
 (require 'company-emacs-eclim)
 (company-emacs-eclim-setup)
-(global-company-mode t)
 (put 'downcase-region 'disabled nil)
