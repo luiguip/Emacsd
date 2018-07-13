@@ -1,0 +1,5 @@
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . TeX-mode))
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-PDF-mode t)
+(add-hook 'TeX-mode-hook 'flyspell-mode)

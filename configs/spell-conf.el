@@ -1,0 +1,7 @@
+(defun fd-switch-dictionary()
+  (interactive)
+  (let* ((dic ispell-current-dictionary)
+	 (new-dic (if (string-equal dic "brasileiro") "american" "brasileiro")))
+    (ispell-change-dictionary new-dic)
+    (message "Dictionary switched from %s to %s" dic new-dic)))
+(global-set-key (kbd "<f8>") 'fd-switch-dictionary)

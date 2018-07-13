@@ -1,0 +1,5 @@
+(define-prefix-command 'luigui-map)
+(global-set-key (kbd "C-'") 'luigui-map)
+(define-key luigui-map (kbd "t") 'ansi-term)
+(define-key luigui-map (kbd "p") 'previous-buffer)
+(define-key luigui-map (kbd "n") 'next-buffer)

@@ -1,0 +1,4 @@
+(require 'org)
+
+(add-to-list 'auto-mode-list '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-list '("\\.org\\'" . flyspell-mode) t)

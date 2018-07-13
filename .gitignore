@@ -1,0 +1,9 @@
+auto-save-list
+eshell
+tramp
+tutorial
+snippets
+*~
+session*
+.emacs*
+elpa

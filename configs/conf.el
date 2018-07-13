@@ -13,3 +13,12 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+;;disable welcome screen
+(setq inhibit-startup-message t)
+;;save session
+(desktop-save-mode t)
+;;start emacs server
+(server-start)
+;;tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
